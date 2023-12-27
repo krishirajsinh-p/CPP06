@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:52:16 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/27 17:11:02 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/27 17:23:08 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ Base* generate(void) {
 }
 
 void identify(Base* p) {
-	if (dynamic_cast<A*>(p))
+	if (p == NULL)
+		cout << "(null)" << endl;
+	else if (dynamic_cast<A*>(p))
 		cout << "A" << endl;
 	else if (dynamic_cast<B*>(p))
 		cout << "B" << endl;
@@ -59,16 +61,19 @@ int main(void) {
 	Base* a = generate();
 	Base* b = generate();
 	Base* c = generate();
+	Base* d = NULL;
 
 	cout << "=======" << endl;
-	cout << "a* = "; identify( a );
-	cout << "a& = "; identify( *a );
+	cout << "a* = "; identify(a);
+	cout << "a& = "; identify(*a);
 	cout << "=======" << endl;
-	cout << "b* = "; identify( b );
-	cout << "b& = "; identify( *b );
+	cout << "b* = "; identify(b);
+	cout << "b& = "; identify(*b);
 	cout << "=======" << endl;
-	cout << "c* = "; identify( c );
-	cout << "c& = "; identify( *c );
+	cout << "c* = "; identify(c);
+	cout << "c& = "; identify(*c);
+	cout << "=======" << endl;
+	cout << "d* = "; identify(d);
 	cout << "=======" << endl;
 
 	delete a;
